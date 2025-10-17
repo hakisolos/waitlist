@@ -16,11 +16,7 @@ import (
 // @host localhost:3001
 // @BasePath /
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("env loaded")
+	_ = godotenv.Load()
 
 	config.ConnDB()
 	app := gin.Default()
