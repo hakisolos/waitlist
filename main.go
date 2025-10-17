@@ -23,6 +23,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("env loaded")
 
 	config.ConnDB()
 	app := gin.Default()
@@ -32,6 +33,6 @@ func main() {
 	app.POST("/join", controllers.JoinController)
 	app.GET("/users", controllers.GetUsersController)
 
-	app.Run(":3001")
+	app.Run(":3000")
 	fmt.Println(os.Getenv("MONGO_URI"))
 }

@@ -1,9 +1,7 @@
 package models
 
-import "github.com/kamva/mgm/v3"
-
-type User struct {
-	mgm.DefaultModel `bson:",inline"`
-	Name             string `json:"name" bson:"name"`
-	Email            string `json:"email" bson:"email"`
+type Waiter struct {
+	ID    int    `json:"id"`
+	Name  string `json:"name"`
+	Email string `json:"email"`
 }

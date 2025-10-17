@@ -1,19 +1,23 @@
 package config
 
 import (
+	"database/sql"
 	"fmt"
 	"os"
 
-	"github.com/kamva/mgm/v3"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	_ "github.com/lib/pq"
 )
 
-func ConnDB() {
-	var uri string = os.Getenv("MONGO_URI")
+var DB *sql.DB
+var err error
 
-	err := mgm.SetDefaultConfig(nil, "waitlist", options.Client().ApplyURI(uri))
+func ConnDB() {
+	cstring := os.Getenv("cstring")
+
+	DB, err = sql.Open("postgres", cstring)
 	if err != nil {
 		panic(err)
 	}
+
 	fmt.Println("database connected successfully")
 }

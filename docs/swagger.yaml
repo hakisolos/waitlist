@@ -1,9 +1,0 @@
-basePath: /
-host: localhost:3001
-info:
-  contact: {}
-  description: API documentation for the Waitlist service
-  title: Waitlist API
-  version: "1.0"
-paths: {}
-swagger: "2.0"
