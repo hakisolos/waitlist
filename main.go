@@ -7,10 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/hakisolos/waitlist/config"
 	"github.com/hakisolos/waitlist/controllers"
-	_ "github.com/hakisolos/waitlist/docs"
 	"github.com/joho/godotenv"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 // @title Waitlist API
@@ -28,7 +25,6 @@ func main() {
 	config.ConnDB()
 	app := gin.Default()
 
-	app.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	app.GET("/", controllers.TestController)
 	app.POST("/join", controllers.JoinController)
 	app.GET("/users", controllers.GetUsersController)
